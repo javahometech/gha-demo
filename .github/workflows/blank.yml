@@ -8,6 +8,8 @@ on:
   pull_request:
     branches:
       - 'feature/**'
+    types:
+      - opened
 jobs:
   build:
     runs-on: ubuntu-latest

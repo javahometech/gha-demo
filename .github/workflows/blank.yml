@@ -1,4 +1,4 @@
-name: GitHub Action Demo triggered by ${{github.actor}}
+name: "GitHub Action Demo triggered by ${{github.actor}}"
 on: push
 jobs:
   action-demo:

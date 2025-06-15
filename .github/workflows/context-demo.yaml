@@ -10,4 +10,4 @@ jobs:
           echo "The repository name is ${{ github.repository }}"
 
       - name: Print all variables under github
-        run: "${{ toJson(github) }}"
+        run: echo "${{ toJson(github) }}"

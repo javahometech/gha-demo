@@ -1,5 +1,5 @@
 name: Or Condition Demo
-on: push
+on: workflow_dispatch
 jobs:
   demo:
     runs-on: ubuntu-latest

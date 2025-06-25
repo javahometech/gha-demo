@@ -11,7 +11,9 @@ jobs:
         if: startsWith(github.ref,'refs/heads/feature') && github.event_name == 'push'
         steps:
             - name: Perform Quality Check
-              run: echo "Performing quality check"
+              run: |
+                echo "Performing quality check"
+                exit 1
     dev_deploy:
         runs-on: ubuntu-latest
         if: github.ref_name == 'develop' && github.event_name == 'push'

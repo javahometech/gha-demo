@@ -34,7 +34,7 @@ jobs:
     failure_notify:
         runs-on: ubuntu-latest
         needs: ['quality_checks','dev_deploy','prod_deploy']
-        if: ${{ !success() }}
+        if: failure()
         steps:
             - name: Sent Failure Email
               run: echo "Sending failure emai..."

@@ -1,0 +1,38 @@
+name: Smart Deploy
+on:
+    push:
+        branches:
+            - main
+            - develop
+            - feature/**
+jobs:
+    quality_checks:
+        runs-on: ubuntu-latest
+        if: startsWith(github.ref,'refs/heads/feature') && github.event == 'push'
+        steps:
+            - name: Perform Quality Check
+              run: echo "Performing quality check"
+    dev_deploy:
+        runs-on: ubuntu-latest
+        if: github.ref_name == 'develop' && github.event == 'push'
+        steps:
+            - name: Dev Deploy
+              run: echo "Deploying to dev environment"
+    prod_deploy:
+        runs-on: ubuntu-latest
+        if: github.ref_name == 'main' && github.event == 'push'
+        steps:
+            - name: Prod Deploy
+              run: echo "Deploying to production environment"
+    success_notify:
+        runs-on: ubuntu-latest
+        if: success()
+        steps:
+            - name: Sent Succcess Email
+              run: echo "Sending success emai..."
+    failure_notify:
+        runs-on: ubuntu-latest
+        if: failure()
+        steps:
+            - name: Sent Failure Email
+              run: echo "Sending failure emai..."

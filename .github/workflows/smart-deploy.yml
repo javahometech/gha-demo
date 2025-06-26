@@ -1,10 +1,5 @@
 name: Smart Deploy
-on:
-    push:
-        branches:
-            - main
-            - develop
-            - feature/**
+on: workflow_dispatch
 jobs:
     quality_checks:
         runs-on: ubuntu-latest
